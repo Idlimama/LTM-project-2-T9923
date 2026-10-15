@@ -1,0 +1,53 @@
+# Offline Edge Telemetry and Repair Support System
+# Complete runtime + verification dependencies for the Antigravity/GitHub build.
+# Target: Python 3.11+, Windows x86-64, CPU-only, project-local virtual environment.
+# Install: python -m pip install --upgrade pip
+#          python -m pip install -r requirements.txt
+
+# UI
+streamlit==1.65.0
+plotly>=6.0,<7.0
+
+# Configuration and typed contracts
+pydantic>=2.12,<3.0
+pydantic-settings==2.16.0
+PyYAML>=6.0.2,<7.0
+platformdirs>=4.3,<5.0
+
+# Data and numerical processing
+numpy>=1.26,<3.0
+pandas>=2.2,<4.0
+scipy>=1.13,<2.0
+
+# Predictive maintenance pipeline
+scikit-learn==1.9.1
+joblib>=1.4,<2.0
+imbalanced-learn>=0.14,<1.0
+matplotlib>=3.9,<4.0
+
+# PDF ingestion and test/report generation
+PyMuPDF==1.28.2
+filetype>=1.2,<2.0
+reportlab>=4.2,<5.0
+
+# Retrieval: semantic primary + lexical fallback
+sentence-transformers==6.1.0
+faiss-cpu==1.15.1
+
+# Dataset acquisition, diagnostics, and reliability
+requests>=2.32,<3.0
+psutil>=6.1,<8.0
+
+# Automated verification and code quality
+pytest>=8.3,<10.0
+pytest-cov>=6.0,<8.0
+ruff>=0.9,<1.0
+mypy>=1.14,<2.0
+
+# Notes:
+# - sqlite3 is included with Python and must not be installed from PyPI.
+# - sentence-transformers installs its compatible CPU inference stack, including PyTorch.
+# - The application must fall back to TF-IDF/cosine when MiniLM or FAISS is unavailable.
+# - OCR is intentionally excluded. Scanned pages must return OCR_REQUIRED.
+# - Do not add cloud SDKs, paid APIs, CUDA packages, LangChain, or an LLM runtime unless
+#   the authoritative Project Bible is explicitly revised to require them.
